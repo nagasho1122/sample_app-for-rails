@@ -5,6 +5,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
   end
+  
 
   test "unsuccessful edit" do
     log_in_as(@user)
@@ -36,4 +37,5 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal name, @user.name
     assert_equal email, @user.email
     end
+    
 end
