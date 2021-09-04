@@ -32,18 +32,18 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'https://peaceful-beyond-67627.herokuapp.com/'
-  config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => host,
-    :authentication => :plain,
-  }
+  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.delivery_method = :smtp
+  host = 'https://91cc6e875f834cc3999b462aa0b2db9f.vfs.cloud9.us-east-2.amazonaws.com'     # クラウドIDE
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  #ActionMailer::Base.smtp_settings = {
+   # :port           => ENV['MAILGUN_SMTP_PORT'],
+    #:address        => ENV['MAILGUN_SMTP_SERVER'],
+    #:user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    #:password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    #:domain         => host,
+    #:authentication => :plain,
+  #}
   
   config.action_mailer.perform_caching = false
 
